@@ -20,4 +20,9 @@ Route::get('/', function () {
 //  });
  
 
- Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+//  Route::get('hello','HelloController@index');
+//  Route::get('hello/other','HelloController@other');
+
+
+// -----実習用-----
+Route::get('Jissyu2','JissyuController@index');
