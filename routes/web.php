@@ -27,10 +27,20 @@ Route::get('/', function () {
 //     return view('hello.index');
 //  });
 
+// Route::get('hello', 'HelloController@index');
+// Route::post('hello', 'HelloController@post');
+
+// use App\Http\Middleware\HelloMiddleware;
+
+// Route::get('hello', 'HelloController@index')
+// ->middleware(HelloMiddleware::class);
+
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
 
- 
-
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
+
+// Route::get('___(1)___', '___(2)___');
+// Route::post('___(3)___', '___(4)___');
+
