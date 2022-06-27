@@ -1,4 +1,4 @@
- <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -11,15 +11,17 @@ class Jissyu3_1Controller extends Controller
         $data = [
             'msg'=>'お名前を入力下さい。',
         ];
-        return view('___(5)___', $data);
+        return view('Jissyu3_1.input', $data);
     }
 
-    public function post(___(6)___)
+    public function post(Request $request)
     {
         $msg = $request->msg;
         $data = [
             'msg'=>'こんにちは、' . $msg . 'さん！',
         ];
-        return view('___(7)___', $data);
+        return view('Jissyu3_1.output', $data);
     }
-} -->
+
+
+}

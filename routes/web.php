@@ -41,6 +41,11 @@ Route::post('hello', 'HelloController@post');
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
 
-// Route::get('___(1)___', '___(2)___');
-// Route::post('___(3)___', '___(4)___');
+Route::get('Jissyu', 'JissyuController@index');
+
+Route::get('Jissyu3', 'Jissyu3_1Controller@index');
+Route::post('Jissyu3', 'Jissyu3_1Controller@post');
+
+Route::get('Jissyu3_2', 'Jissyu3_2Controller@index');
+Route::post('Jissyu3_2', 'Jissyu3_2Controller@post');
 

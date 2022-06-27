@@ -9,6 +9,6 @@
 </head>
 <body>
     <h1>Blade/Index</h1>
-    <p>___(10)___</p>
+    <p>{{$msg}}</p>
  </body>
 </html>
