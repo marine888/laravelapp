@@ -35,8 +35,24 @@ Route::get('/', function () {
 // Route::get('hello', 'HelloController@index')
 // ->middleware(HelloMiddleware::class);
 
+
+// トップページの表示
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
+
+// データの挿入
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');
+
+// データの更新
+Route::get('hello/edit', 'HelloController@edit');
+Route::post('hello/edit', 'HelloController@update');
+
+// データの削除
+Route::get('hello/del', 'HelloController@del');
+Route::post('hello/del', 'HelloController@remove');
+
+
 
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
@@ -48,4 +64,14 @@ Route::post('Jissyu3', 'Jissyu3_1Controller@post');
 
 Route::get('Jissyu3_2', 'Jissyu3_2Controller@index');
 Route::post('Jissyu3_2', 'Jissyu3_2Controller@post');
+
+Route::get('Jissyu3_3', 'Jissyu3_3Controller@index');
+
+
+// kouka問題1
+Route::get('Kouka1_1', 'Kouka1_1Controller@index');
+// 問題2
+Route::get('Kouka1_2', 'Kouka1_2Controller@index');
+Route::post('Kouka1_2', 'Kouka1_2Controller@post');
+
 
