@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class HelloController extends Controller
 {
   
-
+// --------------トップページの表示--------------
     public function index(Request $request)
     {
        if (isset($request->id))
@@ -28,5 +28,22 @@ class HelloController extends Controller
    {
        return view('hello.index', ['msg'=>'正しく入力されました！']);
    }
+   
+// --------------データの挿入--------------
+public function add(Request $request)
+{
+    return view('hello.add');
+}
+
+public function create(Request $request)
+{
+    $param = [
+        'name' => $request->name,
+        'mail' => $request->mail,
+        'age' => $request->age,
+    ];
+    DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+    return redirect('/hello');
+}
 
 }

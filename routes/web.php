@@ -57,3 +57,7 @@ Route::get('Kouka1_1', 'Kouka1_1Controller@index');
 // 問題2
 Route::get('Kouka1_2', 'Kouka1_2Controller@index');
 Route::post('Kouka1_2', 'Kouka1_2Controller@post');
+
+
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');
