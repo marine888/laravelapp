@@ -28,7 +28,7 @@ class HelloController extends Controller
    {
        return view('hello.index', ['msg'=>'正しく入力されました！']);
    }
-   
+
 // --------------データの挿入--------------
 public function add(Request $request)
 {
@@ -44,6 +44,29 @@ public function create(Request $request)
     ];
     DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
     return redirect('/hello');
-}
 
 }
+    
+// --------------データの更新--------------
+    public function edit(Request $request)
+    {
+       $param = ['id' => $request->id];
+       $item = DB::select('select * from people where id = :id', $param);
+       return view('hello.edit', ['form' => $item[0]]);
+    }
+    
+    public function update(Request $request)
+    {
+       $param = [
+           'id' => $request->id,
+           'name' => $request->name,
+           'mail' => $request->mail,
+           'age' => $request->age,
+       ];
+       DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
+       return redirect('/hello');
+    }
+
+
+}
+
