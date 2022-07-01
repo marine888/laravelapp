@@ -50,3 +50,10 @@ Route::get('Jissyu3_2', 'Jissyu3_2Controller@index');
 Route::post('Jissyu3_2', 'Jissyu3_2Controller@post');
 
 Route::get('Jissyu3_3', 'Jissyu3_3Controller@index');
+
+
+// kouka問題1
+Route::get('Kouka1_1', 'Kouka1_1Controller@index');
+// 問題2
+Route::get('Kouka1_2', 'Kouka1_2Controller@index');
+Route::post('Kouka1_2', 'Kouka1_2Controller@post');
