@@ -53,6 +53,9 @@ Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 
 
+// 指定したＩＤのレコードを得る
+Route::get('hello/show', 'HelloController@show');
+
 
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
