@@ -1,0 +1,18 @@
+@startuml
+actor ユーザ
+boundary ブラウザ
+control web.php
+control rensyuController
+
+ユーザ -> ブラウザ:該当ページ
+ブラウザ -> web.php:
+web.php -> rensyuController:
+ブラウザ <- rensyuController:
+
+alt 成功
+ブラウザ -> rensyuController
+else 失敗
+ブラウザ -> web.php
+end
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+actor ユーザ
+boundary ブラウザ
+control web.php
+control rensyu
+boundary input
+boundary output
+
+ユーザ -> ブラウザ:該当ページ
+ブラウザ -> web.php
+web.php -> rensyu
+rensyu -> input
+ユーザ -> input
+input -> web.php
+web.php -> rensyu
+alt 成功
+rensyu -> output
+else エラー発生
+rensyu -> input
+end
+@enduml
