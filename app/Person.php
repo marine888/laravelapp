@@ -21,4 +21,10 @@ class Person extends Model
    {
       return $this->id . ': ' . $this->name . ' (' . $this->age . ')';
    }
+
+   // personモデル修正
+   public function boards()
+   {
+      return $this->hasMany('App\Board');
+   }
 }
