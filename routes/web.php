@@ -70,6 +70,11 @@ Route::post('person/add', 'PersonController@create');
 Route::get('person/edit', 'PersonController@edit');
 Route::post('person/edit', 'PersonController@update');
 
+// delete、removeアクションの作成
+Route::get('person/del', 'PersonController@delete');
+Route::post('person/del', 'PersonController@remove');
+
+
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
 
