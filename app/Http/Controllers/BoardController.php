@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 class BoardController extends Controller
 {
 
-   public function index(Request $request)
-   {
-       $items = Board::all();
+    public function index(Request $request)
+    {
+        // eagerローディング
+       $items = Board::with('person')->get();
        return view('board.index', ['items' => $items]);
-   }
+    }
+    
 
    public function add(Request $request)
    {
