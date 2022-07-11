@@ -7,6 +7,7 @@ use App\Http\Requests\HelloRequest;
 use Validator;
 use Illuminate\Support\Facades\DB;
 use App\Person;
+use Illuminate\Support\Facades\Auth; 
 
 class HelloController extends Controller
 {
@@ -14,6 +15,7 @@ class HelloController extends Controller
 // --------------トップページの表示--------------
 public function index(Request $request)
 {
+   $user = Auth::user();
    if(isset($request->sort)){
       $sort = $request->sort;
    }else{
@@ -23,7 +25,7 @@ public function index(Request $request)
 
    $items = Person::orderBy($sort, 'asc')
       ->paginate(5);
-   $param = ['items' => $items, 'sort' => $sort];
+      $param = ['items' => $items, 'sort' => $sort, 'user' => $user];
    return view('hello.index', $param);
 }
 
@@ -115,6 +117,26 @@ public function ses_put(Request $request)
    $msg = $request->input;
    $request->session()->put('msg', $msg);
    return redirect('hello/session');
+}
+
+// ログインの追記
+public function getAuth(Request $request)
+{
+   $param = ['message' => 'ログインして下さい。'];
+   return view('hello.auth', $param);
+}
+
+public function postAuth(Request $request)
+{
+   $email = $request->email;
+   $password = $request->password;
+   if (Auth::attempt(['email' => $email,
+           'password' => $password])) {
+       $msg = 'ログインしました。（' . Auth::user()->name . '）';
+   } else {
+       $msg = 'ログインに失敗しました。';
+   }
+   return view('hello.auth', ['message' => $msg]);
 }
 }
 

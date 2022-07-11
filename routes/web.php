@@ -37,7 +37,8 @@ Route::get('/', function () {
 
 
 // トップページの表示
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+->middleware('auth');
 Route::post('hello', 'HelloController@post');
 
 // データの挿入
@@ -92,6 +93,10 @@ Route::get('hello/rest', 'HelloController@rest');
 Route::get('hello/session', 'HelloController@ses_get');
 Route::post('hello/session', 'HelloController@ses_put');
 
+// ログインの追記
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
+
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
 
@@ -113,3 +118,7 @@ Route::get('Kouka1_2', 'Kouka1_2Controller@index');
 Route::post('Kouka1_2', 'Kouka1_2Controller@post');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
