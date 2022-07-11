@@ -82,6 +82,16 @@ Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
 
 
+// ルート情報の追記
+Route::resource('rest', 'RestappController');
+
+// REST
+Route::get('hello/rest', 'HelloController@rest');
+
+// sesstion ルート情報の追記
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
 // -----実習用-----
 Route::get('Jissyu2','JissyuController@index');
 
