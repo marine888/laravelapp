@@ -22,7 +22,7 @@ public function index(Request $request)
 
 
    $items = Person::orderBy($sort, 'asc')
-      ->simplePaginate(5);
+      ->paginate(5);
    $param = ['items' => $items, 'sort' => $sort];
    return view('hello.index', $param);
 }
