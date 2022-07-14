@@ -54,3 +54,7 @@ Route::get('Jissyu3_3', 'Jissyu3_3Controller@index');
 // chapter5
 Route::get('Jissyu5_1', 'Jissyu5_1Controller@index');
 Route::get('Jissyu5_1/show', 'Jissyu5_1Controller@show');
+
+// chapter6
+Route::get('jissyu13', 'Jissyu6_1Controller@index');
+Route::post('jissyu13/find', 'Jissyu6_1Controller@find');
